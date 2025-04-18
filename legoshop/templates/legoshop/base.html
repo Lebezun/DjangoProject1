@@ -1,0 +1,38 @@
+<!-- templates/legoshop/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}LEGO Shop{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        .home-link {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            display: inline-block;
+        }
+        .menu-list {
+            list-style: none;
+            padding: 0;
+        }
+        .menu-list li {
+            margin: 10px 0;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

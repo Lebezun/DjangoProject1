@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54de4fd7-6e26-4e67-ab85-1a81227b70e0" name="Changes" comment="створення вюшок 2 коміт">
+      <change afterPath="$PROJECT_DIR$/legoshop/static/lego_store_styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legoshop/templates/legoshop/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legoshop/templates/legoshop/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legoshop/templates/legoshop/catalog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legoshop/templates/legoshop/categories.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legoshop/templates/legoshop/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legoshop/templates/legoshop/orders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legoshop/templates/legoshop/product/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject1/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject1/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject1/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legoshop/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/legoshop/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legoshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/legoshop/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legoshop/templates/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legoshop/templates/catalog.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legoshop/templates/contacts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legoshop/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legoshop/templates/promotions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legoshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/legoshop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legoshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/legoshop/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,21 +45,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Lebezun"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Lebezun&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Lebezun/DjangoProject",
-    "accountId": "142bdac2-c95d-4d83-8080-cc97a14a86c2"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Lebezun/DjangoProject&quot;,
+    &quot;accountId&quot;: &quot;142bdac2-c95d-4d83-8080-cc97a14a86c2&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2vRnNARINaL1zi6Ck5a70WhKnPK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -52,6 +72,7 @@
   "keyToString": {
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -63,8 +84,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tassa\PycharmProjects\DjangoProject1\legoshop\templates\legoshop" />
       <recent name="C:\Users\tassa\PycharmProjects\DjangoProject1\legoshop\templates" />
       <recent name="C:\Users\tassa\PycharmProjects\DjangoProject1\legoshop" />
+      <recent name="C:\Users\tassa\PycharmProjects\DjangoProject1\static" />
       <recent name="C:\Users\tassa\PycharmProjects\DjangoProject1\DjangoProject1" />
     </key>
   </component>
@@ -111,6 +134,7 @@
       <option name="presentableId" value="Default" />
       <updated>1744116711653</updated>
       <workItem from="1744116712728" duration="2199000" />
+      <workItem from="1744965460882" duration="9745000" />
     </task>
     <task id="LOCAL-00001" summary="пуш">
       <option name="closed" value="true" />
@@ -128,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744118581607</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="створення вюшок 2 коміт">
+      <option name="closed" value="true" />
+      <created>1744965545183</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744965545183</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

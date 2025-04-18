@@ -1,21 +1,24 @@
 from django.shortcuts import render
+from .models import Category, LegoSet
 
 
 def home(request):
-    return render(request, 'home.html')
-
-
-def catalog(request):
-    return render(request, 'catalog.html')
-
-
-def promotions(request):
-    return render(request, 'promotions.html')
+    return render(request, 'legoshop/home.html')
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'legoshop/about.html')
 
 
-def contacts(request):
-    return render(request, 'contacts.html')
+def catalog(request):
+    sets = LegoSet.objects.all()
+    return render(request, 'legoshop/catalog.html', {'sets': sets})
+
+
+def categories(request):
+    categories = Category.objects.all()
+    return render(request, 'legoshop/categories.html', {'categories': categories})
+
+
+def orders(request):
+    return render(request, 'legoshop/orders.html')

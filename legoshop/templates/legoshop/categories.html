@@ -1,0 +1,18 @@
+{% extends 'legoshop/base.html' %}
+
+{% block title %}Категорії - LEGO Shop{% endblock %}
+
+{% block content %}
+<h1>Категорії наборів LEGO</h1>
+<div class="categories">
+    {% for category in categories %}
+    <div class="category-card">
+        <h2>{{ category.name }}</h2>
+        <p>{{ category.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+<div class="home-link">
+    <a href="{% url 'home' %}">На головну</a>
+</div>
+{% endblock %}

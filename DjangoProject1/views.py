@@ -2,20 +2,25 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'home.html')
-
-
-def catalog(request):
-    return render(request, 'catalog.html')
-
-
-def promotions(request):
-    return render(request, 'promotions.html')
+    """Головна сторінка"""
+    return render(request, 'legoshop/home.html')
 
 
 def about(request):
-    return render(request, 'about.html')
+    """Сторінка про магазин"""
+    return render(request, 'legoshop/about.html')
 
 
-def contacts(request):
-    return render(request, 'contacts.html')
+def catalog(request):
+    """Сторінка каталогу"""
+    return render(request, 'legoshop/catalog.html')
+
+
+def categories(request):
+    """Сторінка категорій"""
+    return render(request, 'legoshop/categories.html')
+
+
+def orders(request):
+    """Сторінка замовлень"""
+    return render(request, 'legoshop/orders.html')

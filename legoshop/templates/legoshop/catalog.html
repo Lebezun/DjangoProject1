@@ -1,0 +1,23 @@
+{% extends 'legoshop/base.html' %}
+
+{% block title %}Каталог - LEGO Shop{% endblock %}
+
+{% block content %}
+<h1>Каталог наборів LEGO</h1>
+<div class="catalog">
+    {% for set in sets %}
+    <div class="product-card">
+        <h2>{{ set.name }}</h2>
+        <p>Номер набору: {{ set.set_number }}</p>
+        <p>Категорія: {{ set.category.name }}</p>
+        <p>Ціна: {{ set.price }} грн</p>
+        <p>Кількість деталей: {{ set.pieces_count }}</p>
+        <p>Вік: {{ set.age_restriction }}</p>
+        <p>{% if set.in_stock %}В наявності{% else %}Немає в наявності{% endif %}</p>
+    </div>
+    {% endfor %}
+</div>
+<div class="home-link">
+    <a href="{% url 'home' %}">На головну</a>
+</div>
+{% endblock %}
