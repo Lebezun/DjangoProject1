@@ -1,14 +1,76 @@
-<!-- templates/legoshop/home.html -->
 {% extends 'legoshop/base.html' %}
+{% load static %}
 
 {% block title %}Головна - LEGO Shop{% endblock %}
 
 {% block content %}
-<h1>LEGO Shop - Головна сторінка</h1>
-<ul class="menu-list">
-    <li><a href="{% url 'about' %}">Про нас</a></li>
-    <li><a href="{% url 'catalog' %}">Каталог</a></li>
-    <li><a href="{% url 'categories' %}">Категорії</a></li>
-    <li><a href="{% url 'orders' %}">Замовлення</a></li>
-</ul>
+<!-- Hero Section -->
+<section class="hero-section mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-4 mb-4">Ласкаво просимо до LEGO Shop</h1>
+                <p class="lead">Знайдіть ідеальний набір LEGO для себе або в подарунок. Величезний вибір наборів для всіх вікових категорій.</p>
+                <a href="{% url 'categories' %}" class="btn btn-primary btn-lg">Переглянути каталог</a>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'legoshop/images/hero-image.jpg' %}" alt="LEGO Shop" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="categories-section mb-5">
+    <div class="container">
+        <h2 class="section-title mb-4">Категорії LEGO</h2>
+        <div class="row">
+            {% for category in categories %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    {% if category.image %}
+                    <img src="{{ category.image.url }}" class="card-img-top" alt="{{ category.name }}" style="height: 200px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ category.name }}</h5>
+                        <p class="card-text">{{ category.description|truncatewords:15 }}</p>
+                        <a href="{% url 'category_detail' category.id %}" class="btn btn-outline-primary">Дивитись набори</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Latest Sets Section -->
+<section class="latest-sets-section">
+    <div class="container">
+        <h2 class="section-title mb-4">Нові надходження</h2>
+        <div class="row">
+            {% for set in latest_sets %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    {% if set.image %}
+                    <img src="{{ set.image.url }}" class="card-img-top" alt="{{ set.name }}" style="height: 200px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ set.name }}</h5>
+                        <p class="card-text">{{ set.description|truncatewords:15 }}</p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                Артикул: {{ set.article_number }}<br>
+                                Ціна: {{ set.price }} грн
+                            </small>
+                        </p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <button class="btn btn-primary w-100">Купити</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}

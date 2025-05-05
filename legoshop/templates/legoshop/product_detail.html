@@ -1,0 +1,119 @@
+{% extends 'legoshop/base.html' %}
+
+{% block title %}{{ product.name }} - LEGO Shop{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Хлібні крихти -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Головна</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'category_detail' product.category.id %}">{{ product.category.name }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+        </ol>
+    </nav>
+
+    <!-- Деталі продукту -->
+    <div class="row">
+        <!-- Зображення продукту -->
+        <div class="col-md-6 mb-4">
+            <div class="product-image-container">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded product-image">
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Інформація про продукт -->
+        <div class="col-md-6">
+            <h1 class="mb-3">{{ product.name }}</h1>
+            <p class="lead mb-4">{{ product.description }}</p>
+
+            <div class="product-info mb-4">
+                <div class="row">
+                    <div class="col-6">
+                        <p><strong>Артикул:</strong><br>{{ product.article_number }}</p>
+                    </div>
+                    <div class="col-6">
+                        <p><strong>Категорія:</strong><br>{{ product.category.name }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price-block mb-4">
+                <h3 class="text-primary mb-3">{{ product.price }} грн</h3>
+                {% if product.available %}
+                <span class="badge bg-success mb-3">В наявності</span>
+                {% else %}
+                <span class="badge bg-danger mb-3">Немає в наявності</span>
+                {% endif %}
+            </div>
+
+            <div class="buy-block">
+                <div class="row align-items-center">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <input type="number" class="form-control" value="1" min="1" max="10">
+                    </div>
+                    <div class="col-md-8">
+                        <button class="btn btn-primary btn-lg w-100" {% if not product.available %}disabled{% endif %}>
+                            {% if product.available %}
+                            Додати до кошика
+                            {% else %}
+                            Товар відсутній
+                            {% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Характеристики -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3 class="mb-4">Характеристики</h3>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Артикул</th>
+                        <td>{{ product.article_number }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Категорія</th>
+                        <td>{{ product.category.name }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ціна</th>
+                        <td>{{ product.price }} грн</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Схожі товари -->
+    {% if related_products %}
+    <div class="related-products mt-5">
+        <h3 class="mb-4">Схожі набори</h3>
+        <div class="row">
+            {% for related in related_products %}
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    {% if related.image %}
+                    <img src="{{ related.image.url }}" class="card-img-top" alt="{{ related.name }}" style="height: 200px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ related.name }}</h5>
+                        <p class="card-text">
+                            <small class="text-muted">{{ related.price }} грн</small>
+                        </p>
+                        <a href="{% url 'product_detail' related.id %}" class="btn btn-outline-primary">Детальніше</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

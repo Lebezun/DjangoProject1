@@ -1,0 +1,49 @@
+{% extends 'legoshop/base.html' %}
+
+{% block title %}{{ category.name }} - LEGO Shop{% endblock %}
+
+{% block content %}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'categories' %}">Категорії</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ category.name }}</li>
+        </ol>
+    </nav>
+
+    <h1 class="mb-4">{{ category.name }}</h1>
+    {% if category.description %}
+    <p class="lead mb-4">{{ category.description }}</p>
+    {% endif %}
+
+    <div class="row">
+        {% for set in sets %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                {% if set.image %}
+                <img src="{{ set.image.url }}" class="card-img-top" alt="{{ set.name }}" style="height: 200px; object-fit: cover;">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ set.name }}</h5>
+                    <p class="card-text">{{ set.description|truncatewords:20 }}</p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            Артикул: {{ set.article_number }}<br>
+                            Ціна: {{ set.price }} грн
+                        </small>
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent d-flex gap-2">
+                    <a href="{% url 'product_detail' set.id %}" class="btn btn-outline-primary flex-grow-1">Деталі</a>
+                    <button class="btn btn-primary">Купити</button>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p>У цій категорії поки немає наборів.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
