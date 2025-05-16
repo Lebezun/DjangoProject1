@@ -23,4 +23,4 @@ def categories(request):
 
 def orders(request):
     """Сторінка замовлень"""
-    return render(request, 'legoshop/orders.html')
+    return render(request, 'legoshop/order_form.html')

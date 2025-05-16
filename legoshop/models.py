@@ -42,6 +42,7 @@ class LegoSet(models.Model):
     in_stock = models.BooleanField(default=True, verbose_name="В наявності")
     release_date = models.DateField(verbose_name="Дата випуску")
     weight = models.FloatField(help_text="Вага в грамах", default=0, verbose_name="Вага")
+    image = models.ImageField(upload_to='products/', blank=True, null=True, verbose_name="Зображення")
 
     class Meta:
         verbose_name = "LEGO набір"
@@ -50,3 +51,24 @@ class LegoSet(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.set_number})"
+
+
+from django.db import models
+
+class Order(models.Model):
+    lego_set = models.ForeignKey('LegoSet', on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    customer_name = models.CharField(max_length=100)
+    customer_email = models.EmailField()
+    customer_phone = models.CharField(max_length=20)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Order #{self.id} - {self.customer_name}"
+
+    class Meta:
+        verbose_name = "Замовлення"
+        verbose_name_plural = "Замовлення"
+
+    def __str__(self):
+        return f"Замовлення #{self.id} - {self.lego_set.name} x{self.quantity}"

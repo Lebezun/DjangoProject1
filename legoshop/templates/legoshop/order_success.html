@@ -1,0 +1,12 @@
+{% extends 'legoshop/base.html' %}
+
+{% block title %}Дякуємо за замовлення{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Дякуємо за ваше замовлення!</h2>
+    <p>Ваше замовлення №{{ order.id }} прийнято.</p>
+    <p>Ми зв’яжемося з вами за телефоном {{ order.customer_phone }} або email {{ order.customer_email }} найближчим часом.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">На головну</a>
+</div>
+{% endblock %}

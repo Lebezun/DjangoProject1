@@ -65,7 +65,11 @@
                         </p>
                     </div>
                     <div class="card-footer bg-transparent">
-                        <button class="btn btn-primary w-100">Купити</button>
+                        <form action="{% url 'order_create' set.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="btn btn-primary w-100">Купити</button>
+                        </form>
                     </div>
                 </div>
             </div>

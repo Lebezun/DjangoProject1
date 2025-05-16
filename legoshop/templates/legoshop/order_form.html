@@ -1,0 +1,35 @@
+{% extends 'legoshop/base.html' %}
+
+{% block title %}Оформлення замовлення - {{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Оформлення замовлення: <strong>{{ product.name }}</strong></h2>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Кількість</label>
+            <input type="number" name="quantity" id="quantity" class="form-control" value="{{ quantity|default:1 }}" min="1" max="10" required>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Ім'я</label>
+            <input type="text" name="name" id="name" class="form-control" value="{{ name|default:'' }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" class="form-control" value="{{ email|default:'' }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Телефон</label>
+            <input type="tel" name="phone" id="phone" class="form-control" value="{{ phone|default:'' }}" required>
+        </div>
+        <button type="submit" class="btn btn-success">Підтвердити замовлення</button>
+        <a href="{% url 'product_detail' product.id %}" class="btn btn-secondary ms-2">Назад до товару</a>
+    </form>
+</div>
+{% endblock %}

@@ -35,7 +35,11 @@
                 </div>
                 <div class="card-footer bg-transparent d-flex gap-2">
                     <a href="{% url 'product_detail' set.id %}" class="btn btn-outline-primary flex-grow-1">Деталі</a>
-                    <button class="btn btn-primary">Купити</button>
+                    <form action="{% url 'order_create' set.id %}" method="post" style="margin:0;">
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-primary">Купити</button>
+                    </form>
                 </div>
             </div>
         </div>
